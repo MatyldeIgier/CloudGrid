@@ -4,7 +4,7 @@ from point import Point
 import csv
 import time
 
-start = time.clock()
+start = time.time()
 
 geo_locs = []
 #loc_ = Point(0.0, 0.0)  #tuples for location
@@ -25,12 +25,12 @@ for line in reader:
 cluster = clustering(geo_locs, 4 )
 flag = cluster.k_means()
 
-end = time.clock()
+end = time.time()
 
 if flag == -1:
     print "Error in arguments!"
 else:	
-    print "%.2gs" % (end-start)
+    print "%f" % (end-start)
     #the clustering results is a list of lists where each list represents one cluster
     print "Clustering results:"
     cluster.print_clusters(cluster.clusters)
